@@ -75,14 +75,14 @@
                         <div>{{$tweets->count()}}</div>
                         </a>
                     </li>
-                    @if ($is_edit_profile)
+                    
                         <li class= "{{ !Route::currentRouteNamed('following') ?: 'active' }}">
                             <a href="{{ url('/' . $user->id . '/following') }}" class="text-center">
                                 <div class="text-uppercase">Following</div>
                                 <div>{{ $following_count }}</div>
                             </a>
                         </li>
-                    @endif
+                    
                     <li class="{{ !Route::currentRouteNamed('followers') ?: 'active' }}">
                         <a href="{{ url('/' . $user->id . '/followers') }}" class="text-center">
                             <div class="text-uppercase">Followers</div>
@@ -108,17 +108,20 @@
                     </a>
                     @endif
                 @endif
-                </div>
+            </div>
+            
           </div>
-        </nav>
         <div class="container">
-        <form action="/profile" enctype="multipart/form-data" method="POST">
-            <label>Update Profile Image</label>
-            <input type="file"  name="image">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <input type="submit" style="float:right" class="btn btn-sm btn-primary">
-        </form>
-
+       
+            @if (Auth::check())
+                <br>
+                 <form action="/profile" enctype="multipart/form-data" method="POST">
+                    <label>Update Profile Image</label>
+                    <input type="file"  name="image">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="submit" style="float:right" class="btn btn-sm btn-primary">
+                </form>
+            @endif
         <br>
 
         @yield('content')

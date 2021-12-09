@@ -8,6 +8,7 @@
                         {!! Form::open(['action'=>'TweetsController@store' , 'method' => 'POST']) !!}
                         
                             {{Form::textarea('body','',['class'=> 'form-control','rows'=>'3', 'cols'=>'5', 'maxlength'=>'139','placeholder'=>'What is in your mind'])}}      
+                           <br>
                             {{Form::submit('Submit' ,['class'=> 'btn btn-primary', 'style'=>'float:right;margin-top:-20px'])}}
                         {!! Form::close()!!}
                     </div>

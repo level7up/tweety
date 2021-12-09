@@ -1,0 +1,4 @@
+username : webtswoo_levelup
+
+database :webtswoo_tweety
+pass : 78789789

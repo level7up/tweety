@@ -1,4 +1,4 @@
-@extends('layouts.profile')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -10,9 +10,11 @@
                 <div class="panel-body">
                     <div class="list-group">
                     @forelse ($list as $following)
-                        <a href="{{ url('/' . $following->username) }}" class="list-group-item">
-                            <h4 class="list-group-item-heading">{{ $following->name }}</h4>
-                            <p class="list-group-item-text">&#64;{{ $following->username }}</p>
+                        <a href="/{{$following->id}}" class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                <img class="list-item md" src="/uploads/images/{{$following->image}}" style="width:50px;height:50px;border-radius:50%;margin-right:55px;">
+                                &#64;{{ $following->name }}
+                            </h4>
                         </a>
                     @empty
                         <p>No users</p>
